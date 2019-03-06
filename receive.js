@@ -14,6 +14,7 @@ amqp.connect('amqp://localhost', function(err, conn) {
       ch.consume(q, function(msg) {
         console.log(" [x] Received %s", msg.content.toString());
       }, {noAck: true});
+      
     });
     
   });
