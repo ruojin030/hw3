@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "amqplib": "^0.5.3"
+    "amqplib": "^0.5.3",
+    "express-longpoll": "0.0.4"
   },
   "devDependencies": {},
   "scripts": {
