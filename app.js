@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/listen',function(req, res){
     var key = req.body.key
     var ex = 'hw3'
+    console.log(key)
     amqp.connect('amqp://localhost', function(err, conn) {
         conn.createChannel(function(err, ch){
             if(err){
