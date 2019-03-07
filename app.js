@@ -27,7 +27,7 @@ app.post('/listen',function(req, res){
             ch.assertQueue('',{exclusive:true},function(err,q){
                 for(i = 0; i<key.length;i++){
                     ch.bindQueue(q.queue, ex, key[i]);
-                    console.log('key is '+x);
+                    console.log('key is '+key[i]);
                 }
                 ch.consume(q.queue, function(msg){
                     console.log(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString());
