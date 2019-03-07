@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 
-router.post('/listen',function(req, res){
+router.post('/',function(req, res){
     var key = req.body.key
     var ex = 'hw3'
     console.log(key)

@@ -4,7 +4,7 @@ var router = express.Router();
 
 
 
-router.post('/speak',function(req,res){
+router.post('/',function(req,res){
     var key = req.body.key
     var msg = req.body.msg
     console.log("key is "+ key +" msg is "+ msg)
