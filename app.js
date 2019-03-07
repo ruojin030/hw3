@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
-var port = 3000
+var port = 80
 
 
 var app = express()
