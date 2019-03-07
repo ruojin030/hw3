@@ -11,7 +11,7 @@ var app = express()
 amqp = require('amqplib/callback_api')
 
 var lis = require("./routes/listen")
-var speak = require('./routes/speal')
+var speak = require('./routes/speak')
 
 app.use(logger('dev'));
 app.use(express.json());
