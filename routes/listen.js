@@ -5,7 +5,7 @@ var amqp = require('amqplib/callback_api');
 
 
 router.post('/',function(req, res){
-    var key = JSON.parse(req.body.keys)
+    var key = req.body.keys
     var ex = 'hw3'
     console.log(key)
     amqp.connect('amqp://localhost', function(err, conn) {
