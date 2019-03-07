@@ -21,6 +21,9 @@ app.post('/listen',function(req, res){
     var ex = 'hw3'
     amqp.connect('amqp://localhost', function(err, conn) {
         conn.createChannel(function(err, ch){
+            if(err){
+                return req.send("error")
+            }
             ch.assertExchange(ex, 'direct', {durable:false})
             console.log("Waiting for logs")
             console.log("Key arr is "+key)
