@@ -23,10 +23,11 @@ app.post('/listen',function(req, res){
         conn.createChannel(function(err, ch){
             ch.assertExchange(ex, 'direct', {durable:false})
             console.log("Waiting for logs")
+            console.log("Key arr is "+key)
             ch.assertQueue('',{exclusive:true},function(err,q){
-                for(x in key){
-                    ch.bindQueue(q.queue, ex, x);
-                    console.log('key is '+x)
+                for(i = 0; i<key.length;i++){
+                    ch.bindQueue(q.queue, ex, key[i]);
+                    console.log('key is '+x);
                 }
                 ch.consume(q.queue, function(msg){
                     console.log(" [x] %s: '%s'", msg.fields.routingKey, msg.content.toString());
@@ -44,7 +45,6 @@ app.post('/speak',function(req,res){
     conn.createChannel(function(err, ch) {
     var ex = 'hw3';
     var m = msg
-    var severity = (args.length > 0) ? args[0] : 'info';
 
     ch.assertExchange(ex, 'direct', {durable: false});
     ch.publish(ex, key, new Buffer(m));
