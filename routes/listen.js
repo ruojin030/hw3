@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();
-
+var amqp = require('amqplib/callback_api');
 
 
 router.post('/',function(req, res){
