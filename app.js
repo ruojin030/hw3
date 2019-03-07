@@ -40,7 +40,7 @@ app.post('/listen',function(req, res){
 
 app.post('/speak',function(req,res){
     var key = req.body.key
-    var msg = JSON.parse(req.body.msg)
+    var msg = req.body.msg
     console.log("key is "+ key +" msg is "+ msg)
 
     amqp.connect('amqp://localhost', function(err, conn) {
