@@ -53,10 +53,9 @@ app.post('/speak',function(req,res){
 
   setTimeout(function() { conn.close(); process.exit(0) }, 500);
 });
-    
-
-
 })
+
+app.listen(port);
 
 
 module.exports = app;
