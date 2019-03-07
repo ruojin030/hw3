@@ -40,15 +40,16 @@ app.post('/listen',function(req, res){
 
 app.post('/speak',function(req,res){
     var key = req.body.key
-    var msg = req.body.msg
+    var msg = JSON.parse(req.body.msg)
+    console.log("key is "+ key +" msg is "+ msg)
+
     amqp.connect('amqp://localhost', function(err, conn) {
     conn.createChannel(function(err, ch) {
     var ex = 'hw3';
-    var m = msg
 
     ch.assertExchange(ex, 'direct', {durable: false});
-    ch.publish(ex, key,m);
-    console.log(" [x] Sent %s: '%s'", key, m);
+    ch.publish(ex, key,new Buffer(msg));
+    console.log(" [x] Sent %s: '%s'", key, msg);
   });
 
   setTimeout(function() { conn.close(); process.exit(0) }, 500);
