@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/listen',function(req, res){
-    var key = JSON.parse(req.body.key)
+    var key = req.body.key
     var ex = 'hw3'
     amqp.connect('amqp://localhost', function(err, conn) {
         conn.createChannel(function(err, ch){
