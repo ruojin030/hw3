@@ -47,7 +47,7 @@ app.post('/speak',function(req,res){
     var m = msg
 
     ch.assertExchange(ex, 'direct', {durable: false});
-    ch.publish(ex, key, new Buffer(m));
+    ch.publish(ex, key,m);
     console.log(" [x] Sent %s: '%s'", key, m);
   });
 
