@@ -20,6 +20,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/listen', lis)
 app.use('/speak',speak)
+app.post('/',function(req, res){
+    res.send("OK")
+})
 
 app.listen(port);
 
